@@ -1,0 +1,29 @@
+{% extends 'taller/base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between">
+  <h2>Clientes</h2>
+  <a class="btn btn-primary" href="{% url 'taller:cliente_create' %}">Nuevo cliente</a>
+</div>
+<table class="table mt-3">
+  <thead><tr><th>DNI</th><th>Nombre</th><th>Apellido</th><th>Teléfono</th><th>Acciones</th></tr></thead>
+  <tbody>
+  {% for c in clientes %}
+    <tr>
+      <td>{{ c.dni }}</td>
+      <td>{{ c.nombre }}</td>
+      <td>{{ c.apellido }}</td>
+      <td>{{ c.telefono }}</td>
+      <td>
+        <a class="btn btn-sm btn-secondary" href="{% url 'taller:cliente_edit' c.pk %}">Editar</a>
+        <form action="{% url 'taller:cliente_delete' c.pk %}" method="post" style="display:inline;">
+          {% csrf_token %}
+          <button class="btn btn-sm btn-danger" type="submit">Borrar</button>
+        </form>
+      </td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="5">No hay clientes</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

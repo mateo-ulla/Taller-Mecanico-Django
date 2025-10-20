@@ -1,0 +1,29 @@
+{% extends 'taller/base.html' %}
+{% block content %}
+<h2>Lista de Mecánicos</h2>
+<a href="{% url 'taller:mecanico_create' %}" class="btn btn-success mb-3">Nuevo Mecánico</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Legajo</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Rol</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mecanico in mecanicos %}
+        <tr>
+            <td>{{ mecanico.legajo }}</td>
+            <td>{{ mecanico.nombre }}</td>
+            <td>{{ mecanico.apellido }}</td>
+            <td>{{ mecanico.rol }}</td>
+            <td>{{ mecanico.estado }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">No hay mecánicos.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

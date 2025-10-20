@@ -1,0 +1,10 @@
+{% extends 'taller/base.html' %}
+{% block content %}
+<h3>Confirme eliminación</h3>
+<p>¿Está seguro que desea eliminar {{ obj }} ?</p>
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-danger" type="submit">Sí, eliminar</button>
+  <a class="btn btn-secondary" href="javascript:history.back()">Cancelar</a>
+</form>
+{% endblock %}

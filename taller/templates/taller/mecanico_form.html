@@ -1,0 +1,9 @@
+{% extends 'taller/base.html' %}
+{% block content %}
+<h2>Nuevo Mecánico</h2>
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Guardar</button>
+  <a href="{% url 'taller:mecanico_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

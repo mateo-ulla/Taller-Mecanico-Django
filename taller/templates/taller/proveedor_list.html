@@ -1,0 +1,29 @@
+{% extends 'taller/base.html' %}
+{% block content %}
+<h2>Lista de Proveedores</h2>
+<a href="{% url 'taller:proveedor_create' %}" class="btn btn-success mb-3">Nuevo Proveedor</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>CUIT</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for proveedor in proveedores %}
+        <tr>
+            <td>{{ proveedor.id }}</td>
+            <td>{{ proveedor.nombre }}</td>
+            <td>{{ proveedor.cuit }}</td>
+            <td>{{ proveedor.telefono }}</td>
+            <td>{{ proveedor.direccion }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">No hay proveedores.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
