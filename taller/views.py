@@ -1,9 +1,28 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Cliente, Mecanico, Producto, Proveedor, Usuario
-from .forms import ClienteForm, MecanicoForm, ProductoForm, ProveedorForm, UsuarioForm
+from .forms import ClienteForm, MecanicoForm, ProductoForm, ProveedorForm, UsuarioForm, ContactoForm, CotizacionForm 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+
+
+# Vista pública de inicio
+def inicio(request):
+    return render(request, 'taller/inicio.html')
+def acerca(request):
+    return render(request, 'taller/acercaDeNosotros.html')
+from .models import Producto  # si tus servicios están en el modelo Producto
+
+def servicios(request):
+    servicios = Producto.objects.filter(tipo='servicio')  # filtramos todos los servicios
+    return render(request, 'taller/servicios.html', {'servicios': servicios})#renderizamos template y le pasamos los servicios
+
+def lista_productos(request):
+    productos = Producto.objects.filter(tipo='producto')
+    return render(request, 'taller/productos.html', {'productos': productos})
+
+
 # Vista de login
 def login_view(request):
     if request.method == 'POST':
@@ -120,3 +139,26 @@ def usuario_create(request):
     else:
         form = UsuarioForm()
     return render(request, 'taller/usuario_form.html', {'form': form})
+
+def ubic_contacto(request):
+    return render(request, 'taller/ubic_contacto.html')
+
+def contacto(request):
+    if request.method == 'POST':
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('taller:contacto')  # o una página de “Gracias”
+    else:
+        form = ContactoForm()
+    return render(request, 'taller/contacto.html', {'form': form, 'mapa': True})  # mapa se puede usar en el template
+
+def cotizacion(request):
+    if request.method == 'POST':
+        form = CotizacionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('taller:cotizacion')  # página de “Gracias”
+    else:
+        form = CotizacionForm()
+    return render(request, 'taller/cotizacion.html', {'form': form})

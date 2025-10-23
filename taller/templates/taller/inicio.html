@@ -1,0 +1,45 @@
+{% extends 'taller/base.html' %}
+{% block title %}Inicio - Taller Mecánico{% endblock %}
+
+{% block content %}
+<div class="text-center p-5 bg-dark text-light">
+    <h1>Bienvenido a <span class="text-warning">Taller Mecánico El Pistón</span></h1>
+    <p class="lead mt-3">Mantenimiento, reparación y diagnóstico profesional para tu vehículo.</p>
+    <a href="{% url 'taller:inicio' %}" class="btn btn-warning mt-3 fw-bold">¡Solicitá tu turno hoy!</a>
+</div>
+
+<div class="container text-center my-5">
+    <h2>Nuestros servicios</h2>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>Mecánica General</h4>
+                <p>Motor, frenos, suspensión y sistemas eléctricos.</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>Cambio de Aceite</h4>
+                <p>Usamos lubricantes y filtros de las mejores marcas.</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>Revisión Preventiva</h4>
+                <p>Detectamos posibles fallas antes de que aparezcan.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center my-5">
+    <h2>¿Quiénes somos?</h2>
+    <p class="mt-3 px-3">En <strong>Taller Mecánico El Pistón</strong> somos un equipo de profesionales apasionados por el cuidado de tu vehículo. Nuestro objetivo es brindar un servicio confiable, eficiente y con total transparencia. Cada cliente es importante y nos aseguramos de que tu auto reciba la atención que merece.</p>
+    <a href="/acerca/" class="btn btn-primary mt-3 fw-bold">Conocer más</a>
+</div>
+
+<div class="bg-light py-4 text-center">
+    <h3>¿Por qué elegirnos?</h3>
+    <p class="mt-2">Más de 10 años de experiencia, atención personalizada y resultados garantizados.</p>
+</div>
+{% endblock %}

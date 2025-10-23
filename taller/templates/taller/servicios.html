@@ -1,0 +1,21 @@
+{% extends 'taller/base.html' %}
+{% block title %}Servicios - Taller Mecánico{% endblock %}
+
+{% block content %}
+<div class="container my-5 text-center">
+    <h1>Nuestros Servicios</h1>
+    <div class="row mt-4 justify-content-center">
+        {% for servicio in servicios %}
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>{{ servicio.nombre }}</h4>
+                <p>{{ servicio.descripcion }}</p>
+                <p class="fw-bold">{{ servicio.precio }} $</p>
+            </div>
+        </div>
+        {% empty %}
+        <p>No hay servicios disponibles por el momento.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

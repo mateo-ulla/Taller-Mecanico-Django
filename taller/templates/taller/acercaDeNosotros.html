@@ -1,0 +1,42 @@
+{% extends 'taller/base.html' %}
+{% block title %}Acerca de Nosotros - Taller Mecánico{% endblock %}
+
+{% block content %}
+<div class="text-center p-5 bg-dark text-light">
+    <h1>Acerca de <span class="text-warning">Taller Mecánico El Pistón</span></h1>
+    <p class="lead mt-3">Conocé nuestra misión, visión, historia y equipo de trabajo.</p>
+</div>
+
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm p-4 h-100">
+                <h4>Misión</h4>
+                <p>Brindar servicios de mantenimiento y reparación automotriz con profesionalismo, confiabilidad y atención personalizada, asegurando la seguridad y satisfacción de nuestros clientes.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm p-4 h-100">
+                <h4>Visión</h4>
+                <p>Ser reconocidos como el taller mecánico de referencia en la región, innovando en técnicas de reparación y manteniendo la excelencia en el servicio al cliente.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm p-4 h-100">
+                <h4>Historia</h4>
+                <p>Desde 2012, Taller Mecánico El Pistón ha crecido gracias a la pasión por la mecánica y la confianza de nuestros clientes. Comenzamos como un pequeño taller familiar y hoy contamos con un equipo profesional completo.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm p-4 h-100">
+                <h4>Equipo</h4>
+                <p>Nuestro equipo está compuesto por mecánicos certificados, especialistas en diagnóstico y atención al cliente, comprometidos en entregar siempre un servicio de calidad y confianza.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center my-5">
+    <a href="{% url 'taller:inicio' %}" class="btn btn-warning fw-bold">Volver al Inicio</a>
+</div>
+{% endblock %}

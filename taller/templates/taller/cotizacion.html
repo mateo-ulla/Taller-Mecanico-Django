@@ -1,0 +1,9 @@
+{% extends 'taller/base.html' %}
+{% block content %}
+<h2>Solicitud de Cotización</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Solicitar</button>
+</form>
+{% endblock %}

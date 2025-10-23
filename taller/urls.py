@@ -3,7 +3,16 @@ from . import views
 
 app_name = 'taller'
 urlpatterns = [
-    path('', views.dashboard, name='dashboard'),
+    path('', views.inicio, name='inicio'),  # Página pública
+    path('acerca/', views.acerca, name='acerca'),
+    path('servicios/', views.servicios, name='servicios'),
+
+    path('ubic_contacto/', views.ubic_contacto, name='ubic_contacto'),
+    path('contacto/', views.contacto, name='contacto'),
+    path('cotizacion/', views.cotizacion, name='cotizacion'),
+
+
+    path('dashboard/', views.dashboard, name='dashboard'),
     path('clientes/', views.cliente_list, name='cliente_list'),
     path('clientes/nuevo/', views.cliente_create, name='cliente_create'),
     path('clientes/<str:pk>/edit/', views.cliente_edit, name='cliente_edit'),

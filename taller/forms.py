@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cliente, Mecanico, Producto, Proveedor, Usuario
+from .models import Cliente, Mecanico, Producto, Proveedor, Usuario,  Contacto, Cotizacion
 
 class ClienteForm(forms.ModelForm):
     class Meta:
@@ -34,3 +34,13 @@ class UsuarioForm(forms.ModelForm):
         model = Usuario
         fields = '__all__'
         widgets = {f.name: forms.TextInput(attrs={'class':'form-control'}) for f in model._meta.fields}
+
+class ContactoForm(forms.ModelForm):
+    class Meta:
+        model = Contacto
+        fields = ['nombre', 'email', 'mensaje']
+
+class CotizacionForm(forms.ModelForm):
+    class Meta:
+        model = Cotizacion
+        fields = ['nombre', 'email', 'servicio_solicitado', 'detalles']

@@ -1,0 +1,22 @@
+{% extends 'taller/base.html' %}
+
+{% block content %}
+<h2>Ubicación y Contacto</h2>
+
+<div style="margin-bottom: 20px;">
+    <!-- Botón para ir al formulario de contacto -->
+    <a href="{% url 'taller:contacto' %}" class="btn btn-primary">Formulario de Contacto</a>
+
+    <!-- Botón para ir al formulario de cotización -->
+    <a href="{% url 'taller:cotizacion' %}" class="btn btn-success">Solicitar Presupuesto</a>
+</div>
+
+<div>
+    <h3>Ubicación</h3>
+    <p>Av. Ejemplo 123, Ciudad, País</p>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...tu_mapa..."
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+</div>
+{% endblock %}
