@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'taller'
 urlpatterns = [
-    path('', views.inicio, name='inicio'),  # Página pública
+    path('', views.inicio, name='inicio'),  # página pública
     path('acerca/', views.acerca, name='acerca'),
     path('servicios/', views.servicios, name='servicios'),
 

@@ -1,5 +1,4 @@
 Taller Mecánico - Proyecto Django
-================================
 
 Instrucciones para Windows (PowerShell):
 

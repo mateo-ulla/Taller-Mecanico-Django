@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 
-# Vista pública de inicio
+# vista pública de inicio
 def inicio(request):
     return render(request, 'taller/inicio.html')
 def acerca(request):
@@ -16,14 +16,14 @@ from .models import Producto  # si tus servicios están en el modelo Producto
 
 def servicios(request):
     servicios = Producto.objects.filter(tipo='servicio')  # filtramos todos los servicios
-    return render(request, 'taller/servicios.html', {'servicios': servicios})#renderizamos template y le pasamos los servicios
+    return render(request, 'taller/servicios.html', {'servicios': servicios}) # renderizamos template y le pasamos los servicios
 
 def lista_productos(request):
     productos = Producto.objects.filter(tipo='producto')
     return render(request, 'taller/productos.html', {'productos': productos})
 
 
-# Vista de login
+# vista de login
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -36,7 +36,7 @@ def login_view(request):
             messages.error(request, 'Usuario o contraseña incorrectos')
     return render(request, 'taller/login.html')
 
-# Vista de logout
+# vista de logout
 def logout_view(request):
     logout(request)
     return redirect('taller:login')
@@ -51,7 +51,6 @@ def dashboard(request):
     }
     return render(request, 'taller/dashboard.html', {'resumen': resumen})
 
-# Generic list/create/edit/delete for Cliente as example; others follow same pattern
 def cliente_list(request):
     clientes = Cliente.objects.all().order_by('apellido')
     return render(request, 'taller/cliente_list.html', {'clientes': clientes})
@@ -87,7 +86,6 @@ def cliente_delete(request, pk):
         return redirect('taller:cliente_list')
     return render(request, 'taller/confirm_delete.html', {'obj': cliente})
 
-# For remaining models, minimal CRUD
 def proveedor_list(request):
     return render(request, 'taller/proveedor_list.html', {'proveedores': Proveedor.objects.all()})
 

@@ -3,7 +3,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'cambia-esta-clave-por-segura'
+SECRET_KEY = 'mi_clave_secreta_para_django'
 DEBUG = True
 ALLOWED_HOSTS = []
 

@@ -1,16 +1,19 @@
-{% extends 'taller/base.html' %}
-{% block content %}
+{% extends 'taller/base.html' %} {% block content %}
 <h2>Contacto</h2>
 <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Enviar</button>
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 
 {% if mapa %}
-<div id="mapa" style="width:100%;height:400px;">
-    <!-- Podés poner un iframe de Google Maps aquí -->
-    <iframe src="TU_URL_DE_MAPA" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<div id="mapa" style="width: 100%; height: 400px">
+  <iframe
+    src="https://share.google/nkf0kgI0EHlHlSmDx"
+    width="100%"
+    height="400"
+    style="border: 0"
+    allowfullscreen=""
+    loading="lazy"
+  ></iframe>
 </div>
-{% endif %}
-{% endblock %}
+{% endif %} {% endblock %}
